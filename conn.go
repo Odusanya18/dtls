@@ -229,7 +229,10 @@ func (c *DTLSConn) Write(b []byte) (n int, err error) {
 	return
 }
 
-
+func (c *DTLSConn) Close() (err error)  {
+	err = c.conn.Close()
+	return
+}
 
 func (c *DTLSConn) Read(b []byte) (n int, err error) {
 	n, err = c.conn.Read(b)
