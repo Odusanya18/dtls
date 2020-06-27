@@ -229,6 +229,13 @@ func (c *DTLSConn) Write(b []byte) (n int, err error) {
 	return
 }
 
+
+
+func (c *DTLSConn) Read(b []byte) (n int, err error) {
+	n, err = c.conn.Read(b)
+	return
+}
+
 func (c *DTLSConn) serve() {
 	for {
 		b := <-c.msgIn
