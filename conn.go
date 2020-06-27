@@ -35,6 +35,10 @@ type DTLSConn struct {
 	tmp [16]byte
 }
 
+func (c *DTLSConn) Close() error {
+	return c.conn.Close()
+}
+
 func (c *DTLSConn) LocalAddr() net.Addr {
 	return c.conn.LocalAddr()
 }
